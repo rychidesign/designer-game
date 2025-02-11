@@ -2,9 +2,9 @@ class Player{
     constructor(game){
         this.game = game;
         this.x = 100;
-        this.y;
-        this.spriteWidth = 200;
-        this.spriteHeight = 200;
+        this.y = 100;
+        this.spriteWidth = 128;
+        this.spriteHeight = 128;
         this.width;
         this.height;
         this.speedY;
@@ -20,7 +20,7 @@ class Player{
         }
         //bottom bondary
         if(this.isTouchingBottom()) {
-            this.y = this.game.height - this.height;
+            this.y = this.game.height - this.height -(100*this.game.ratio);
         }
     }
     resize(){
@@ -31,11 +31,11 @@ class Player{
         this.jumpSpeed = 5 * this.game.ratio;
     }
     isTouchingBottom(){
-        return this.y >= this.game.height - this.height;
+        return this.y >= this.game.height - this.height -(100*this.game.ratio);
     }
     jump(){
-        if(this.y >= this.game.height - this.height){
-            this.speedY = -30* this.game.ratio;
+        if(this.y >= this.game.height - this.height -(100*this.game.ratio)){
+            this.speedY = -34* this.game.ratio;
         }
     }
 }

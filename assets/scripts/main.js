@@ -18,8 +18,8 @@ class Game {
         // mouse controls
         this.canvas.addEventListener('mousedown', e => {
             this.player.jump();
-      })
-        // kexboard controls
+        })
+        // keyboard controls
         window.addEventListener('keydown', e => {
             if (e.key == " " || e.code == "Space" || e.key == "Enter") {
               this.player.jump();
@@ -33,13 +33,13 @@ class Game {
     resize(width, height){
         this.canvas.width = width;
         this.canvas.height = height;
-        this.ctx.fillStyle = 'blue';
+        this.ctx.fillStyle = 'red';
         this.width = this.canvas.width;
         this.height = this.canvas.height;
         this.ratio = this.height / this.baseHeight;
 
         this.gravity = 1.5 * this.ratio;
-        this.speed = 4;
+        this.speed = 3 * this.ratio;
         this.background.resize();
         this.player.resize();
     }
@@ -54,8 +54,8 @@ class Game {
 window-addEventListener('load', function(){
     const canvas = this.document.getElementById('canvas1');
     const ctx = canvas.getContext('2d');
-    canvas.width = 720;
-    canvas.height = 720;
+    //canvas.width = 720;
+    //canvas.height = 720;
 
     const game = new Game(canvas, ctx);
     game.render();
